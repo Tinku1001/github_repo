@@ -30,8 +30,15 @@ app.use(generalLimiter);
 
 // CORS
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
-  credentials: true
+  origin: [
+    'http://localhost:3000',                       
+    'http://localhost:5173',                       
+    'https://github-repo-2t5o.vercel.app/',   
+    process.env.CORS_ORIGIN     
+  ].filter(Boolean),
+  credentials: true,
+  // methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  // allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 // Body parser middleware
