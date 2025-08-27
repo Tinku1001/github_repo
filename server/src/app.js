@@ -32,7 +32,7 @@ app.use(generalLimiter);
 app.use(cors({
   origin: [                     
     'http://localhost:5173',                       
-    'https://github-repo-wpji.vercel.app/',   
+    'https://github-repo-wpji.vercel.app',   
     process.env.CORS_ORIGIN     
   ].filter(Boolean),
   credentials: true,
