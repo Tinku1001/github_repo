@@ -28,11 +28,18 @@ app.use(helmet({
 // Rate limiting
 app.use(generalLimiter);
 
+app.use((req, res, next) => {
+  console.log('Origin received:', req.headers.origin);
+  console.log('Method:', req.method);
+  console.log('URL:', req.url);
+  next();
+});
+
 // CORS
 app.use(cors({
   origin: [                     
     'http://localhost:5173',                       
-    'https://github-repo-wpji.vercel.app',   
+    'https://github-repo-ygmh.vercel.app',   
     process.env.CORS_ORIGIN     
   ].filter(Boolean),
   credentials: true,
