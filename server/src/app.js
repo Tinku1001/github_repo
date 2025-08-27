@@ -30,15 +30,14 @@ app.use(generalLimiter);
 
 // CORS
 app.use(cors({
-  origin: [
-    'http://localhost:3000',                       
+  origin: [                     
     'http://localhost:5173',                       
     'https://github-repo-wpji.vercel.app/',   
     process.env.CORS_ORIGIN     
   ].filter(Boolean),
   credentials: true,
-  // methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  // allowedHeaders: ['Content-Type', 'Authorization']
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 // Body parser middleware
